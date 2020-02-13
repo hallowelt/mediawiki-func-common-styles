@@ -1,19 +1,37 @@
 {
-    "name": "hallowelt/mediawiki-func-common-styles",
-    "description": "Provides minimal static stlyes for common use across extensions",
-    "authors": [
-        {
-            "name": "rvogel",
-            "email": "vogel@hallowelt.biz"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "HalloWelt\\MediaWiki\\Func\\CommonStyles\\": "src/",
-            "HalloWelt\\MediaWiki\\Func\\CommonStyles\\Tests\\": "tests/"
-        }
-	"files": [
-		"bootstrap.php"
-	]
-    }
+	"name": "hallowelt/mediawiki-func-commonstyles",
+	"description": "Provides minimal static stlyes for common use across extensions",
+	"license": "GPL-3.0-only",
+	"authors": [
+		{
+			"name": "rvogel",
+			"email": "vogel@hallowelt.biz"
+		}
+	],
+	"require-dev": {
+        	"jakub-onderka/php-parallel-lint": "1.0.0",
+        	"jakub-onderka/php-console-highlighter": "0.4.0",
+        	"mediawiki/mediawiki-codesniffer": "29.0.0",
+        	"mediawiki/minus-x": "1.0.0"
+    	},
+	"autoload": {
+		"psr-4": {
+			"HalloWelt\\MediaWiki\\Func\\CommonStyles\\": "src/",
+			"HalloWelt\\MediaWiki\\Func\\CommonStyles\\Tests\\": "tests/"
+		},
+		"files": [
+			"bootstrap.php"
+		]
+	},
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor --exclude node_modules",
+			"minus-x check .",
+			"phpcs -sp"
+		],
+		"fix": [
+			"minus-x fix .",
+			"phpcbf"
+		]
+	}
 }
