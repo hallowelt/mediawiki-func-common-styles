@@ -1,0 +1,19 @@
+{
+    "name": "hallowelt/mediawiki-func-common-styles",
+    "description": "Provides minimal static stlyes for common use across extensions",
+    "authors": [
+        {
+            "name": "rvogel",
+            "email": "vogel@hallowelt.biz"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "HalloWelt\\MediaWiki\\Func\\CommonStyles\\": "src/",
+            "HalloWelt\\MediaWiki\\Func\\CommonStyles\\Tests\\": "tests/"
+        }
+	"files": [
+		"bootstrap.php"
+	]
+    }
+}
